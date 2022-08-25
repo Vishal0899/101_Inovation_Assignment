@@ -1,10 +1,38 @@
-const initState = {};
+const initState = {
+  loading: false,
+  data: [],
+  product: {},
+  favourite: [],
+  error: false,
+};
 
 export const reducer = (state = initState, action) => {
   switch (action.type) {
-    case "showData":
+    case "fetch":
       return {
-        state: action.payload,
+        ...state,
+        loading: true,
+      };
+    case "success":
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+      };
+    case "error":
+      return {
+        ...state,
+        error: true,
+      };
+    case "product":
+      return {
+        ...state,
+        product: action.payload,
+      };
+    case "favourite":
+      return {
+        ...state,
+        favourite: [...favourite,action.payload],
       };
     default:
       return state;

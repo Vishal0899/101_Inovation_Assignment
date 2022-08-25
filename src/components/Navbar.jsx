@@ -3,25 +3,11 @@ import {
   Box,
   Flex,
   Text,
-  IconButton,
   Button,
   Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
-  useDisclosure,
 } from "@chakra-ui/react";
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+import { GrFavorite } from "react-icons/gr";
 
 export const Navbar = () => {
   return (
@@ -41,8 +27,9 @@ export const Navbar = () => {
           <Text
             // textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"cursive"}
-            fontSize={"3xl"}
-            color={useColorModeValue("gray.800", "white")}
+            fontSize={"4xl"}
+            color={useColorModeValue("red", "white")}
+            fontWeight={"bold"}
             variant={"link"}
             href={"/"}
           >
@@ -50,21 +37,31 @@ export const Navbar = () => {
           </Text>
         </Flex>
 
-        <Stack
-          // flex={{ base: 1, md: 0 }}
-          // justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
+        <Stack direction={"row"} spacing={6}>
           <Button
             mr={10}
             as={"a"}
-            fontSize={"lg"}
+            fontSize={"xl"}
             fontWeight={500}
             variant={"link"}
             href={"/"}
+            color="black"
           >
             Home
+          </Button>
+        </Stack>
+
+        <Stack direction={"row"} spacing={6}>
+          <Button
+            mr={10}
+            as={"a"}
+            fontSize={"xl"}
+            fontWeight={500}
+            variant={"link"}
+            href={"/favourite"}
+            color="black"
+          >
+            <GrFavorite />
           </Button>
         </Stack>
       </Flex>

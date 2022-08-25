@@ -1,0 +1,38 @@
+#mainBox {
+  width: 95%;
+  margin: auto;
+  margin-top: 50px;
+}
+#showData {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+    #showData {
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 25px;
+    }
+  }
+
+@media only screen and (min-width: 321px) and (max-width: 460px) {
+  #showData {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 25px;
+  }
+}
+
+@media only screen and (min-width: 461px) and (max-width: 1020px) {
+    #showData {
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 25px;
+    }
+  }
