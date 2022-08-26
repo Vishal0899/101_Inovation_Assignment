@@ -18,7 +18,8 @@ export const LandingPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const data = useSelector((state) => state.data);
-  console.log(data);
+  // console.log(data);
+  const loading = useSelector((state) => state.loading);
 
   useEffect(() => {
     getData({ dispatch });
@@ -38,29 +39,10 @@ export const LandingPage = () => {
     localStorage.setItem("favourite", JSON.stringify(favoItems));
   };
 
-  //   const handleChange = (e) => {
-  //     setData(data.sort((a, b) => (a.Menu_Items > b.Menu_Items ? 1 : -1)));
-  //     // console.log(data);
-  //   };
-
   return (
     <Box id="mainBox">
-      <Box>
-        <Flex>
-          {/* <Box >Menu_Category : </Box>
-          <Box border={"1px solid black"}>
-            <select onChange={handleChange}>
-              <option value="Select">Select</option>
-              <option value="Regular Menu">Regular Menu</option>
-              <option value="Breakfast Menu">Breakfast Menu</option>
-            </select>
-          </Box> */}
-          {/* <Button onClick={handleChange}>Sort Items</Button> */}
-        </Flex>
-      </Box>
-      <Box
-        id="showData"
-      >
+      {loading && <Box fontSize={"lg"}>Loading.....</Box>}
+      <Box id="showData">
         {data.map((elem) => (
           <Box
             key={elem.Id}

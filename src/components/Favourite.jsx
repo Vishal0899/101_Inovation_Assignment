@@ -9,40 +9,20 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux/es/exports";
+import "./FavouritePage.css";
 
 export const Favourite = () => {
-  const fData = JSON.parse(localStorage.getItem("favourite")) || [];
+  const fLData = JSON.parse(localStorage.getItem("favourite")) || [];
   // console.log(fData);
-  const fdata = useSelector(state => state);
-  console.log(fdata)
+  const fRdata = useSelector((state) => state);
+  // console.log(fRdata);
   return (
-    <Box w={"95%"} m={"auto"} mt={"50px"}>
+    <Box id="mainBox">
       <Box>
         <Heading>Favourites</Heading>
       </Box>
-      <Box>
-        <Flex>
-          {/* <Box >Menu_Category : </Box>
-          <Box border={"1px solid black"}>
-            <select onChange={handleChange}>
-              <option value="Select">Select</option>
-              <option value="Regular Menu">Regular Menu</option>
-              <option value="Breakfast Menu">Breakfast Menu</option>
-            </select>
-          </Box> */}
-          {/* <Button onClick={handleChange}>Sort Items</Button> */}
-        </Flex>
-      </Box>
-      <Box
-        style={{
-          margin: "auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4,1fr)",
-          gridGap: "25px",
-          marginTop : "10px"
-        }}
-      >
-        {fData.map((elem) => (
+      <Box id="showData">
+        {fLData?.map((elem) => (
           <Box
             // key={elem.Id}
             w={"full"}

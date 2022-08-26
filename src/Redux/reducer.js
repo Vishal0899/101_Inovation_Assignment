@@ -32,7 +32,7 @@ export const reducer = (state = initState, action) => {
     case "favourite":
       return {
         ...state,
-        favourite: [...favourite,action.payload],
+        favourite: [...state.favourite, action.payload],
       };
     default:
       return state;

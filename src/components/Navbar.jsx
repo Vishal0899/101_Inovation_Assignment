@@ -8,58 +8,52 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { GrFavorite } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleFav = () => {
+    navigate("/favourite");
+  };
+  const handleHome = () => {
+    navigate("/")
+  }
   return (
     <Box>
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
-        py={{ base: 2 }}
-        px={{ base: 4 }}
+        // py={{ base: 2 }}
+        // px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
       >
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "left" }}>
-          <Text
-            // textAlign={useBreakpointValue({ base: "center", md: "left" })}
+        <Flex flex={{ base: 1 }} justify={{ md: "left" }}>
+          <Button
             fontFamily={"cursive"}
             fontSize={"4xl"}
             color={useColorModeValue("red", "white")}
             fontWeight={"bold"}
-            variant={"link"}
-            href={"/"}
+            onClick={handleHome}
+            bg={"white"}
           >
             FoodKatta
-          </Text>
+          </Button>
         </Flex>
 
         <Stack direction={"row"} spacing={6}>
           <Button
-            mr={10}
+            mr={"5%"}
             as={"a"}
-            fontSize={"xl"}
+            fontSize={"3xl"}
             fontWeight={500}
-            variant={"link"}
-            href={"/"}
+            onClick={handleFav}
             color="black"
-          >
-            Home
-          </Button>
-        </Stack>
-
-        <Stack direction={"row"} spacing={6}>
-          <Button
-            mr={10}
-            as={"a"}
-            fontSize={"xl"}
-            fontWeight={500}
-            variant={"link"}
-            href={"/favourite"}
-            color="black"
+            bg={"white"}
           >
             <GrFavorite />
           </Button>
