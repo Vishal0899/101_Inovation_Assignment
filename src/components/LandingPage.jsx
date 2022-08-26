@@ -39,9 +39,19 @@ export const LandingPage = () => {
     localStorage.setItem("favourite", JSON.stringify(favoItems));
   };
 
+  // const handleSort = () => {
+  //   data.sort((a, b) => {
+  //     return a.Menu_Items - b.Menu_Items;
+  //   });
+  // };
+
+  // console.log(data)
   return (
     <Box id="mainBox">
       {loading && <Box fontSize={"lg"}>Loading.....</Box>}
+      {/* <Box>
+        <Button onClick={handleSort}>Sort BY Menu_Item</Button>
+      </Box> */}
       <Box id="showData">
         {data.map((elem) => (
           <Box
@@ -90,3 +100,29 @@ export const LandingPage = () => {
     </Box>
   );
 };
+
+// const Sort = (e) => {
+//   if (e.target.value == "LTH") {
+//     const d = [...items].sort((a, b) => {
+//       return Number(a.price) - Number(b.price);
+//     });
+//     console.log(d);
+//     setItems(d);
+//   }
+
+//   if (e.target.value == "HTL") {
+//     const d = [...items].sort((a, b) => {
+//       return Number(b.price) - Number(a.price);
+//     });
+//     console.log(d);
+//     setItems(d);
+//   }
+
+//   if (e.target.value == "ATZ") {
+//     const d = [...items].sort((a, b) => {
+//       return a.title > b.title ? 1 : -1;
+//     });
+//     console.log(d);
+//     setItems(d);
+//   }
+// };
